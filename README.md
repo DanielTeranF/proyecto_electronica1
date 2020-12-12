@@ -1,1 +1,5 @@
-# proyecto_electronica1
+# proyecto Final: Electrónica Digital 1
+
+*Descripción corta:
+
+Integrantes del equipo
