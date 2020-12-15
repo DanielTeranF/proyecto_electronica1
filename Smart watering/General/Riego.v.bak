@@ -1,0 +1,174 @@
+module Riego(	input Clk,
+
+			  
+/////////////VALVULA////////////////////
+            output electrovalvula,
+////////////////////////////////////////
+
+
+
+/////////////TEMPORIZADOR///////////////
+				input reset,
+				output [2:0] an,
+				output alarma,
+////////////////////////////////////////
+
+////////////////LCD/////////////////////
+				inout [7:0] LCD_DATA,      
+				output LCD_RW,        
+				output LCD_EN,        
+				output LCD_RS,  
+////////////////////////////////////////		
+
+///////////////PRESENCIA////////////////
+				input presencia
+////////////////////////////////////////
+);
+			  
+reg pause;
+reg valvula;
+reg [3:0]message;
+reg [11:0] tiempo_establecido;
+wire [3:0] num;
+reg [2:0] status;
+reg sig;
+reg [11:0] tiempo_aux;								//cambio de estado re_???
+
+initial begin
+	
+	tiempo_aux=12'd0;
+	sig=0;
+	status=0;
+	tiempo_establecido=0;
+	pause=1;
+
+end
+
+	EV serv(.clk(Clk),.enable(valvula),.servo(servo));
+	Keyboard_top key(.clk(Clk),.filas(filas),.column(column),.en(en),.num(num));
+	temporizador_top temporizador(Clk,tiempo_establecido,reset,pause,alarma,SSeg,an);
+	LCD_Top lcd(.mensaje(message),.CLOCK_50(Clk),.LCD_RW(LCD_RW),.LCD_EN(LCD_EN),.LCD_RS(LCD_RS),.LCD_DATA(LCD_DATA));
+
+
+/////////////////////////////////////////////////////	
+/////////////////MAQUINA DE ESTADOS//////////////////
+/////////////////////////////////////////////////////
+
+parameter INIT=0, MENU=1, RE_MIN=2,RE_DEC=3,RE_SEG=4, TEMP=5, PAUSE=6, END=7;
+
+always @( posedge Clk) begin
+	
+	case (status)
+	
+		INIT: begin
+		
+			pause<=1;
+			valvula<=0;		//valvula cerrada
+			message <= 0; 		//bienvenida "Bienvenido a SCAAD pulse A para continuar"
+		
+			if(num == 4'hA)begin
+				status = MENU;
+			end
+			
+			
+		end
+		
+		MENU: begin
+		
+			valvula<=1; 		//valvula cerrada
+			message <= 1; 		//pregunta oprima b para empezar o c para reprogramar 
+			
+			if(num == 4'hB)begin
+				status = TEMP;
+			end
+			if(num == 4'hC)begin
+				status = RE_MIN;
+			end
+		
+		end
+		
+		RE_MIN: begin
+			
+			valvula<=0;
+			
+			if(num!=4'hC && num!=4'hF )begin
+				tiempo_aux[11:8]=num;
+			end
+			///mensaje : ingrese los minutos
+			
+			if(num==4'hF)begin
+				sig=1;
+				status=RE_DEC;
+			end
+			
+			
+		end
+		
+		RE_DEC: begin
+			
+			valvula<=1;
+			
+			///mensaje : ingrese los minutos
+			
+			if( num!=4'hF )begin
+				sig<=0;
+				tiempo_aux[7:4]<=num;
+			end
+			
+			
+			
+			if(num==4'hF && sig==0)begin
+				sig<=1;
+				status<=RE_SEG;
+			end
+			
+			
+		end
+		
+		RE_SEG: begin
+			
+			valvula<=0;
+			
+			if(num!=4'hF)begin
+				sig<=0;
+				tiempo_aux[3:0]<=num;
+			end
+			///mensaje : ingrese los minutos
+			if(num==4'hF && sig==0)begin
+				sig<=1;
+				status<=TEMP;
+			end
+			
+			
+		end
+		
+		TEMP: begin
+			
+			pause<=0;
+			valvula<=1;
+			
+			if(sig==0) begin
+				tiempo_establecido<=12'b0001_0000_0000;
+			end
+			if(sig==1) begin
+				tiempo_establecido<=tiempo_aux;
+			end
+			
+			if(RxData==8'b0010_1011 || RxData==8'b0100_0000  || RxData==8'b1000_0110  || RxData==8'b1111_1110)begin
+				status<=END;
+			end
+			
+		end
+		PAUSE: begin
+		
+		end
+		END: begin
+			valvula <= 0;
+			pause <= 1;
+			
+		end
+		default: status=INIT;
+	
+	endcase 
+end 
+endmodule

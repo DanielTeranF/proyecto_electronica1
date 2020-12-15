@@ -1,0 +1,16 @@
+Fitter Status : Successful - Mon Dec 14 17:37:14 2020
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Revision Name : Riego
+Top-level Entity Name : Riego
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Timing Models : Final
+Total logic elements : 182 / 6,272 ( 3 % )
+    Total combinational functions : 179 / 6,272 ( 3 % )
+    Dedicated logic registers : 107 / 6,272 ( 2 % )
+Total registers : 107
+Total pins : 19 / 92 ( 21 % )
+Total virtual pins : 0
+Total memory bits : 0 / 276,480 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )
