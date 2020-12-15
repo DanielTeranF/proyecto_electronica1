@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Riego
-Mon Dec 14 17:37:08 2020
+Tue Dec 15 11:52:37 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -15,18 +15,19 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |Riego|LCD_Top:lcd|LCD_TEST:u5|mLCD_ST
   9. State Machine - |Riego|LCD_Top:lcd|LCD_TEST:u5|LCD_Controller:u0|ST
- 10. Registers Removed During Synthesis
- 11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: Top-level Entity: |Riego
- 14. Parameter Settings for User Entity Instance: LCD_Top:lcd|LCD_TEST:u5
- 15. Parameter Settings for User Entity Instance: LCD_Top:lcd|LCD_TEST:u5|LCD_Controller:u0
- 16. Port Connectivity Checks: "LCD_Top:lcd|LCD_TEST:u5"
- 17. Port Connectivity Checks: "LCD_Top:lcd"
- 18. Post-Synthesis Netlist Statistics for Top Partition
- 19. Elapsed Time Per Partition
- 20. Analysis & Synthesis Messages
- 21. Analysis & Synthesis Suppressed Messages
+ 10. User-Specified and Inferred Latches
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: Top-level Entity: |Riego
+ 15. Parameter Settings for User Entity Instance: LCD_Top:lcd|LCD_TEST:u5
+ 16. Parameter Settings for User Entity Instance: LCD_Top:lcd|LCD_TEST:u5|LCD_Controller:u0
+ 17. Port Connectivity Checks: "LCD_Top:lcd|LCD_TEST:u5"
+ 18. Port Connectivity Checks: "LCD_Top:lcd"
+ 19. Post-Synthesis Netlist Statistics for Top Partition
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
+ 22. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -53,16 +54,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Dec 14 17:37:08 2020       ;
+; Analysis & Synthesis Status        ; Successful - Tue Dec 15 11:52:37 2020       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; Riego                                       ;
 ; Top-level Entity Name              ; Riego                                       ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 180                                         ;
-;     Total combinational functions  ; 179                                         ;
-;     Dedicated logic registers      ; 107                                         ;
-; Total registers                    ; 107                                         ;
-; Total pins                         ; 19                                          ;
+; Total logic elements               ; 181                                         ;
+;     Total combinational functions  ; 180                                         ;
+;     Dedicated logic registers      ; 105                                         ;
+; Total registers                    ; 105                                         ;
+; Total pins                         ; 20                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -173,17 +174,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                     ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                       ; Library ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------------------------------+---------+
-; Riego.v                          ; yes             ; User Verilog HDL File  ; C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v      ;         ;
-; ../LCD/Reset_Delay.v             ; yes             ; User Verilog HDL File  ; C:/Users/wob19/Documents/Lab Digital/Proyecto/LCD/Reset_Delay.v    ;         ;
-; ../LCD/LCD_Top.v                 ; yes             ; User Verilog HDL File  ; C:/Users/wob19/Documents/Lab Digital/Proyecto/LCD/LCD_Top.v        ;         ;
-; ../LCD/LCD_TEST.v                ; yes             ; User Verilog HDL File  ; C:/Users/wob19/Documents/Lab Digital/Proyecto/LCD/LCD_TEST.v       ;         ;
-; ../LCD/LCD_Controller.v          ; yes             ; User Verilog HDL File  ; C:/Users/wob19/Documents/Lab Digital/Proyecto/LCD/LCD_Controller.v ;         ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                           ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                             ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------+---------+
+; Riego.v                          ; yes             ; User Verilog HDL File  ; C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v      ;         ;
+; ../LCD/Reset_Delay.v             ; yes             ; User Verilog HDL File  ; C:/Users/wob19/Documents/Lab Digital/Smart watering/LCD/Reset_Delay.v    ;         ;
+; ../LCD/LCD_Top.v                 ; yes             ; User Verilog HDL File  ; C:/Users/wob19/Documents/Lab Digital/Smart watering/LCD/LCD_Top.v        ;         ;
+; ../LCD/LCD_TEST.v                ; yes             ; User Verilog HDL File  ; C:/Users/wob19/Documents/Lab Digital/Smart watering/LCD/LCD_TEST.v       ;         ;
+; ../LCD/LCD_Controller.v          ; yes             ; User Verilog HDL File  ; C:/Users/wob19/Documents/Lab Digital/Smart watering/LCD/LCD_Controller.v ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -191,30 +192,30 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 180       ;
+; Estimated Total logic elements              ; 181       ;
 ;                                             ;           ;
-; Total combinational functions               ; 179       ;
+; Total combinational functions               ; 180       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 69        ;
-;     -- 3 input functions                    ; 19        ;
-;     -- <=2 input functions                  ; 91        ;
+;     -- 4 input functions                    ; 67        ;
+;     -- 3 input functions                    ; 20        ;
+;     -- <=2 input functions                  ; 93        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 106       ;
+;     -- normal mode                          ; 107       ;
 ;     -- arithmetic mode                      ; 73        ;
 ;                                             ;           ;
-; Total registers                             ; 107       ;
-;     -- Dedicated logic registers            ; 107       ;
+; Total registers                             ; 105       ;
+;     -- Dedicated logic registers            ; 105       ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 19        ;
+; I/O pins                                    ; 20        ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; Clk~input ;
-; Maximum fan-out                             ; 107       ;
-; Total fan-out                               ; 953       ;
-; Average fan-out                             ; 2.87      ;
+; Maximum fan-out                             ; 105       ;
+; Total fan-out                               ; 952       ;
+; Average fan-out                             ; 2.86      ;
 +---------------------------------------------+-----------+
 
 
@@ -223,9 +224,9 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------+----------------+--------------+
 ; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                              ; Entity Name    ; Library Name ;
 +------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------+----------------+--------------+
-; |Riego                       ; 179 (50)            ; 107 (35)                  ; 0           ; 0            ; 0       ; 0         ; 19   ; 0            ; |Riego                                           ; Riego          ; work         ;
-;    |LCD_Top:lcd|             ; 129 (0)             ; 72 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Riego|LCD_Top:lcd                               ; LCD_Top        ; work         ;
-;       |LCD_TEST:u5|          ; 102 (81)            ; 51 (38)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Riego|LCD_Top:lcd|LCD_TEST:u5                   ; LCD_TEST       ; work         ;
+; |Riego                       ; 180 (53)            ; 105 (33)                  ; 0           ; 0            ; 0       ; 0         ; 20   ; 0            ; |Riego                                           ; Riego          ; work         ;
+;    |LCD_Top:lcd|             ; 127 (0)             ; 72 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Riego|LCD_Top:lcd                               ; LCD_Top        ; work         ;
+;       |LCD_TEST:u5|          ; 100 (79)            ; 51 (38)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Riego|LCD_Top:lcd|LCD_TEST:u5                   ; LCD_TEST       ; work         ;
 ;          |LCD_Controller:u0| ; 21 (21)             ; 13 (13)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Riego|LCD_Top:lcd|LCD_TEST:u5|LCD_Controller:u0 ; LCD_Controller ; work         ;
 ;       |Reset_Delay:r0|       ; 27 (27)             ; 21 (21)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Riego|LCD_Top:lcd|Reset_Delay:r0                ; Reset_Delay    ; work         ;
 +------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------+----------------+--------------+
@@ -258,22 +259,34 @@ Encoding Type:  One-Hot
 +-------+-------+-------+-------+-------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                      ;
-+------------------------------------------------+----------------------------------------+
-; Register name                                  ; Reason for Removal                     ;
-+------------------------------------------------+----------------------------------------+
-; LED1~reg0                                      ; Stuck at VCC due to stuck port data_in ;
-; LCD_Top:lcd|LCD_TEST:u5|mLCD_ST~8              ; Lost fanout                            ;
-; LCD_Top:lcd|LCD_TEST:u5|mLCD_ST~9              ; Lost fanout                            ;
-; LCD_Top:lcd|LCD_TEST:u5|mLCD_ST~10             ; Lost fanout                            ;
-; LCD_Top:lcd|LCD_TEST:u5|mLCD_ST~11             ; Lost fanout                            ;
-; LCD_Top:lcd|LCD_TEST:u5|mLCD_ST~12             ; Lost fanout                            ;
-; LCD_Top:lcd|LCD_TEST:u5|mLCD_ST~13             ; Lost fanout                            ;
-; LCD_Top:lcd|LCD_TEST:u5|LCD_Controller:u0|ST~8 ; Lost fanout                            ;
-; LCD_Top:lcd|LCD_TEST:u5|LCD_Controller:u0|ST~9 ; Lost fanout                            ;
-; Total Number of Removed Registers = 9          ;                                        ;
-+------------------------------------------------+----------------------------------------+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; LED1$latch                                         ; VCC                 ; yes                    ;
+; LED2$latch                                         ; VCC                 ; yes                    ;
+; LED3$latch                                         ; VCC                 ; yes                    ;
+; Number of user-specified and inferred latches = 3  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------+
+; Registers Removed During Synthesis                                  ;
++------------------------------------------------+--------------------+
+; Register name                                  ; Reason for Removal ;
++------------------------------------------------+--------------------+
+; LCD_Top:lcd|LCD_TEST:u5|mLCD_ST~8              ; Lost fanout        ;
+; LCD_Top:lcd|LCD_TEST:u5|mLCD_ST~9              ; Lost fanout        ;
+; LCD_Top:lcd|LCD_TEST:u5|mLCD_ST~10             ; Lost fanout        ;
+; LCD_Top:lcd|LCD_TEST:u5|mLCD_ST~11             ; Lost fanout        ;
+; LCD_Top:lcd|LCD_TEST:u5|mLCD_ST~12             ; Lost fanout        ;
+; LCD_Top:lcd|LCD_TEST:u5|mLCD_ST~13             ; Lost fanout        ;
+; LCD_Top:lcd|LCD_TEST:u5|LCD_Controller:u0|ST~8 ; Lost fanout        ;
+; LCD_Top:lcd|LCD_TEST:u5|LCD_Controller:u0|ST~9 ; Lost fanout        ;
+; Total Number of Removed Registers = 8          ;                    ;
++------------------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -281,7 +294,7 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 107   ;
+; Total registers                              ; 105   ;
 ; Number of registers using Synchronous Clear  ; 50    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 51    ;
@@ -526,28 +539,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 19                          ;
-; cycloneiii_ff         ; 107                         ;
+; boundary_port         ; 20                          ;
+; cycloneiii_ff         ; 105                         ;
 ;     CLR               ; 9                           ;
 ;     ENA               ; 19                          ;
 ;     ENA CLR           ; 23                          ;
 ;     ENA CLR SCLR      ; 19                          ;
 ;     ENA SCLR          ; 31                          ;
-;     plain             ; 6                           ;
+;     plain             ; 4                           ;
 ; cycloneiii_io_obuf    ; 8                           ;
 ; cycloneiii_lcell_comb ; 181                         ;
 ;     arith             ; 73                          ;
 ;         2 data inputs ; 71                          ;
 ;         3 data inputs ; 2                           ;
 ;     normal            ; 108                         ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 10                          ;
-;         2 data inputs ; 10                          ;
-;         3 data inputs ; 17                          ;
-;         4 data inputs ; 69                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 9                           ;
+;         2 data inputs ; 13                          ;
+;         3 data inputs ; 18                          ;
+;         4 data inputs ; 67                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 7.00                        ;
-; Average LUT depth     ; 2.92                        ;
+; Average LUT depth     ; 2.98                        ;
 +-----------------------+-----------------------------+
 
 
@@ -566,82 +579,91 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Mon Dec 14 17:36:58 2020
+    Info: Processing started: Tue Dec 15 11:52:27 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Riego -c Riego
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file riego.v
-    Info (12023): Found entity 1: Riego File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 2
-Info (12021): Found 1 design units, including 1 entities, in source file /users/wob19/documents/lab digital/proyecto/lcd/reset_delay.v
-    Info (12023): Found entity 1: Reset_Delay File: C:/Users/wob19/Documents/Lab Digital/Proyecto/LCD/Reset_Delay.v Line: 2
-Info (12021): Found 1 design units, including 1 entities, in source file /users/wob19/documents/lab digital/proyecto/lcd/lcd_top.v
-    Info (12023): Found entity 1: LCD_Top File: C:/Users/wob19/Documents/Lab Digital/Proyecto/LCD/LCD_Top.v Line: 2
-Warning (10229): Verilog HDL Expression warning at LCD_TEST.v(125): truncated literal to match 18 bits File: C:/Users/wob19/Documents/Lab Digital/Proyecto/LCD/LCD_TEST.v Line: 125
-Info (12021): Found 1 design units, including 1 entities, in source file /users/wob19/documents/lab digital/proyecto/lcd/lcd_test.v
-    Info (12023): Found entity 1: LCD_TEST File: C:/Users/wob19/Documents/Lab Digital/Proyecto/LCD/LCD_TEST.v Line: 2
-Info (12021): Found 1 design units, including 1 entities, in source file /users/wob19/documents/lab digital/proyecto/lcd/lcd_controller.v
-    Info (12023): Found entity 1: LCD_Controller File: C:/Users/wob19/Documents/Lab Digital/Proyecto/LCD/LCD_Controller.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /users/wob19/documents/lab digital/proyecto/lcd/divisor_clk.v
-    Info (12023): Found entity 1: Divisor_clk File: C:/Users/wob19/Documents/Lab Digital/Proyecto/LCD/Divisor_clk.v Line: 2
+    Info (12023): Found entity 1: Riego File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /users/wob19/documents/lab digital/smart watering/lcd/reset_delay.v
+    Info (12023): Found entity 1: Reset_Delay File: C:/Users/wob19/Documents/Lab Digital/Smart watering/LCD/Reset_Delay.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /users/wob19/documents/lab digital/smart watering/lcd/lcd_top.v
+    Info (12023): Found entity 1: LCD_Top File: C:/Users/wob19/Documents/Lab Digital/Smart watering/LCD/LCD_Top.v Line: 2
+Warning (10229): Verilog HDL Expression warning at LCD_TEST.v(125): truncated literal to match 18 bits File: C:/Users/wob19/Documents/Lab Digital/Smart watering/LCD/LCD_TEST.v Line: 125
+Info (12021): Found 1 design units, including 1 entities, in source file /users/wob19/documents/lab digital/smart watering/lcd/lcd_test.v
+    Info (12023): Found entity 1: LCD_TEST File: C:/Users/wob19/Documents/Lab Digital/Smart watering/LCD/LCD_TEST.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /users/wob19/documents/lab digital/smart watering/lcd/lcd_controller.v
+    Info (12023): Found entity 1: LCD_Controller File: C:/Users/wob19/Documents/Lab Digital/Smart watering/LCD/LCD_Controller.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/wob19/documents/lab digital/smart watering/lcd/divisor_clk.v
+    Info (12023): Found entity 1: Divisor_clk File: C:/Users/wob19/Documents/Lab Digital/Smart watering/LCD/Divisor_clk.v Line: 2
 Info (12127): Elaborating entity "Riego" for the top level hierarchy
-Warning (10240): Verilog HDL Always Construct warning at Riego.v(66): inferring latch(es) for variable "status", which holds its previous value in one or more paths through the always construct File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 66
-Warning (10230): Verilog HDL assignment warning at Riego.v(92): truncated value with size 32 to match size of target (31) File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 92
-Info (10041): Inferred latch for "status.END" at Riego.v(66) File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 66
-Info (10041): Inferred latch for "status.INIT" at Riego.v(66) File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 66
-Info (12128): Elaborating entity "LCD_Top" for hierarchy "LCD_Top:lcd" File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 57
-Warning (10235): Verilog HDL Always Construct warning at LCD_Top.v(62): variable "mensaje" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/wob19/Documents/Lab Digital/Proyecto/LCD/LCD_Top.v Line: 62
-Warning (10199): Verilog HDL Case Statement warning at LCD_Top.v(134): case item expression never matches the case expression File: C:/Users/wob19/Documents/Lab Digital/Proyecto/LCD/LCD_Top.v Line: 134
-Warning (10199): Verilog HDL Case Statement warning at LCD_Top.v(169): case item expression never matches the case expression File: C:/Users/wob19/Documents/Lab Digital/Proyecto/LCD/LCD_Top.v Line: 169
-Warning (10199): Verilog HDL Case Statement warning at LCD_Top.v(204): case item expression never matches the case expression File: C:/Users/wob19/Documents/Lab Digital/Proyecto/LCD/LCD_Top.v Line: 204
-Info (12128): Elaborating entity "Reset_Delay" for hierarchy "LCD_Top:lcd|Reset_Delay:r0" File: C:/Users/wob19/Documents/Lab Digital/Proyecto/LCD/LCD_Top.v Line: 58
-Warning (10230): Verilog HDL assignment warning at Reset_Delay.v(11): truncated value with size 32 to match size of target (20) File: C:/Users/wob19/Documents/Lab Digital/Proyecto/LCD/Reset_Delay.v Line: 11
-Info (12128): Elaborating entity "LCD_TEST" for hierarchy "LCD_Top:lcd|LCD_TEST:u5" File: C:/Users/wob19/Documents/Lab Digital/Proyecto/LCD/LCD_Top.v Line: 284
-Warning (10230): Verilog HDL assignment warning at LCD_TEST.v(126): truncated value with size 32 to match size of target (18) File: C:/Users/wob19/Documents/Lab Digital/Proyecto/LCD/LCD_TEST.v Line: 126
-Warning (10230): Verilog HDL assignment warning at LCD_TEST.v(134): truncated value with size 32 to match size of target (6) File: C:/Users/wob19/Documents/Lab Digital/Proyecto/LCD/LCD_TEST.v Line: 134
-Info (12128): Elaborating entity "LCD_Controller" for hierarchy "LCD_Top:lcd|LCD_TEST:u5|LCD_Controller:u0" File: C:/Users/wob19/Documents/Lab Digital/Proyecto/LCD/LCD_TEST.v Line: 230
-Warning (10230): Verilog HDL assignment warning at LCD_Controller.v(70): truncated value with size 32 to match size of target (5) File: C:/Users/wob19/Documents/Lab Digital/Proyecto/LCD/LCD_Controller.v Line: 70
+Warning (10240): Verilog HDL Always Construct warning at Riego.v(67): inferring latch(es) for variable "status", which holds its previous value in one or more paths through the always construct File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 67
+Warning (10240): Verilog HDL Always Construct warning at Riego.v(67): inferring latch(es) for variable "LED0", which holds its previous value in one or more paths through the always construct File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 67
+Warning (10240): Verilog HDL Always Construct warning at Riego.v(67): inferring latch(es) for variable "LED1", which holds its previous value in one or more paths through the always construct File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 67
+Warning (10240): Verilog HDL Always Construct warning at Riego.v(67): inferring latch(es) for variable "LED2", which holds its previous value in one or more paths through the always construct File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 67
+Warning (10240): Verilog HDL Always Construct warning at Riego.v(67): inferring latch(es) for variable "LED3", which holds its previous value in one or more paths through the always construct File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 67
+Warning (10230): Verilog HDL assignment warning at Riego.v(91): truncated value with size 32 to match size of target (31) File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 91
+Info (10041): Inferred latch for "status.END" at Riego.v(67) File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 67
+Info (10041): Inferred latch for "status.INIT" at Riego.v(67) File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 67
+Info (10041): Inferred latch for "LED3" at Riego.v(69) File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 69
+Info (10041): Inferred latch for "LED2" at Riego.v(69) File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 69
+Info (10041): Inferred latch for "LED1" at Riego.v(69) File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 69
+Info (10041): Inferred latch for "LED0" at Riego.v(69) File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 69
+Info (12128): Elaborating entity "LCD_Top" for hierarchy "LCD_Top:lcd" File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 58
+Warning (10235): Verilog HDL Always Construct warning at LCD_Top.v(62): variable "mensaje" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/wob19/Documents/Lab Digital/Smart watering/LCD/LCD_Top.v Line: 62
+Warning (10199): Verilog HDL Case Statement warning at LCD_Top.v(134): case item expression never matches the case expression File: C:/Users/wob19/Documents/Lab Digital/Smart watering/LCD/LCD_Top.v Line: 134
+Warning (10199): Verilog HDL Case Statement warning at LCD_Top.v(169): case item expression never matches the case expression File: C:/Users/wob19/Documents/Lab Digital/Smart watering/LCD/LCD_Top.v Line: 169
+Warning (10199): Verilog HDL Case Statement warning at LCD_Top.v(204): case item expression never matches the case expression File: C:/Users/wob19/Documents/Lab Digital/Smart watering/LCD/LCD_Top.v Line: 204
+Info (12128): Elaborating entity "Reset_Delay" for hierarchy "LCD_Top:lcd|Reset_Delay:r0" File: C:/Users/wob19/Documents/Lab Digital/Smart watering/LCD/LCD_Top.v Line: 58
+Warning (10230): Verilog HDL assignment warning at Reset_Delay.v(11): truncated value with size 32 to match size of target (20) File: C:/Users/wob19/Documents/Lab Digital/Smart watering/LCD/Reset_Delay.v Line: 11
+Info (12128): Elaborating entity "LCD_TEST" for hierarchy "LCD_Top:lcd|LCD_TEST:u5" File: C:/Users/wob19/Documents/Lab Digital/Smart watering/LCD/LCD_Top.v Line: 284
+Warning (10230): Verilog HDL assignment warning at LCD_TEST.v(126): truncated value with size 32 to match size of target (18) File: C:/Users/wob19/Documents/Lab Digital/Smart watering/LCD/LCD_TEST.v Line: 126
+Warning (10230): Verilog HDL assignment warning at LCD_TEST.v(134): truncated value with size 32 to match size of target (6) File: C:/Users/wob19/Documents/Lab Digital/Smart watering/LCD/LCD_TEST.v Line: 134
+Info (12128): Elaborating entity "LCD_Controller" for hierarchy "LCD_Top:lcd|LCD_TEST:u5|LCD_Controller:u0" File: C:/Users/wob19/Documents/Lab Digital/Smart watering/LCD/LCD_TEST.v Line: 230
+Warning (10230): Verilog HDL assignment warning at LCD_Controller.v(70): truncated value with size 32 to match size of target (5) File: C:/Users/wob19/Documents/Lab Digital/Smart watering/LCD/LCD_Controller.v Line: 70
+Warning (14026): LATCH primitive "LED0$latch" is permanently enabled File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 69
+Warning (14026): LATCH primitive "LED0$latch" is permanently enabled File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 69
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
-    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[0]" and its non-tri-state driver. File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 18
-    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[1]" and its non-tri-state driver. File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 18
-    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[2]" and its non-tri-state driver. File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 18
-    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[3]" and its non-tri-state driver. File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 18
-    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[4]" and its non-tri-state driver. File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 18
-    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[5]" and its non-tri-state driver. File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 18
-    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[6]" and its non-tri-state driver. File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 18
-    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[7]" and its non-tri-state driver. File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 18
+    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[0]" and its non-tri-state driver. File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 18
+    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[1]" and its non-tri-state driver. File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 18
+    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[2]" and its non-tri-state driver. File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 18
+    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[3]" and its non-tri-state driver. File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 18
+    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[4]" and its non-tri-state driver. File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 18
+    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[5]" and its non-tri-state driver. File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 18
+    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[6]" and its non-tri-state driver. File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 18
+    Warning (13035): Inserted always-enabled tri-state buffer between "LCD_DATA[7]" and its non-tri-state driver. File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 18
 Warning (13009): TRI or OPNDRN buffers permanently enabled
-    Warning (13010): Node "LCD_DATA[0]~synth" File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 18
-    Warning (13010): Node "LCD_DATA[1]~synth" File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 18
-    Warning (13010): Node "LCD_DATA[2]~synth" File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 18
-    Warning (13010): Node "LCD_DATA[3]~synth" File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 18
-    Warning (13010): Node "LCD_DATA[4]~synth" File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 18
-    Warning (13010): Node "LCD_DATA[5]~synth" File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 18
-    Warning (13010): Node "LCD_DATA[6]~synth" File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 18
-    Warning (13010): Node "LCD_DATA[7]~synth" File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 18
+    Warning (13010): Node "LCD_DATA[0]~synth" File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 18
+    Warning (13010): Node "LCD_DATA[1]~synth" File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 18
+    Warning (13010): Node "LCD_DATA[2]~synth" File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 18
+    Warning (13010): Node "LCD_DATA[3]~synth" File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 18
+    Warning (13010): Node "LCD_DATA[4]~synth" File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 18
+    Warning (13010): Node "LCD_DATA[5]~synth" File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 18
+    Warning (13010): Node "LCD_DATA[6]~synth" File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 18
+    Warning (13010): Node "LCD_DATA[7]~synth" File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 18
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LCD_RW" is stuck at GND File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 19
-    Warning (13410): Pin "LED1" is stuck at VCC File: C:/Users/wob19/Documents/Lab Digital/Proyecto/General/Riego.v Line: 34
+    Warning (13410): Pin "LCD_RW" is stuck at GND File: C:/Users/wob19/Documents/Lab Digital/Smart watering/General/Riego.v Line: 19
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 8 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file C:/Users/wob19/Documents/Lab Digital/Proyecto/General/output_files/Riego.map.smsg
+Info (144001): Generated suppressed messages file C:/Users/wob19/Documents/Lab Digital/Smart watering/General/output_files/Riego.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 202 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 203 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 8 output pins
+    Info (21059): Implemented 9 output pins
     Info (21060): Implemented 8 bidirectional pins
     Info (21061): Implemented 183 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 34 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 39 warnings
     Info: Peak virtual memory: 4760 megabytes
-    Info: Processing ended: Mon Dec 14 17:37:08 2020
+    Info: Processing ended: Tue Dec 15 11:52:37 2020
     Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:19
+    Info: Total CPU time (on all processors): 00:00:20
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/wob19/Documents/Lab Digital/Proyecto/General/output_files/Riego.map.smsg.
+The suppressed messages can be found in C:/Users/wob19/Documents/Lab Digital/Smart watering/General/output_files/Riego.map.smsg.
 
 

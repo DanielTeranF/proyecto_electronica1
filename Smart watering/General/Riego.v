@@ -33,7 +33,8 @@ module Riego(input Clk,
 				input SH,
 				output reg LED1,//D7
 				output reg LED2,//D10
-				output reg LED3 //D13
+				output reg LED3, //D13
+				output reg LED4 // D14 Tiempo de apertura de la electroválvula
 ////////////////////////////////////////
 );
 			  
@@ -63,13 +64,13 @@ end
 
 always @(*) begin  // Control de los estados y mensajes
 
-if(SL ==1'b0 && SH == 1'b0) begin message <=0; status<=INIT; end //LED0 = !LED_status; LED1 = LED_status; LED2 = LED_status; LED3 = LED_status; end
+if(SL ==1'b0 && SH == 1'b0) begin message <=0; status<=INIT; LED0 = !LED_status; LED1 = LED_status; LED2 = LED_status; LED3 = LED_status; end
 
-else if(SL == 1'b1 && SH == 1'b0) begin message <=1;  status<=INIT; end //LED0 = LED_status; LED1 = !LED_status; LED2 = LED_status; LED3 = LED_status; end
+else if(SL == 1'b1 && SH == 1'b0) begin message <=1;  status<=INIT; LED0 = LED_status; LED1 = !LED_status; LED2 = LED_status; LED3 = LED_status; end
 
-else if(SL == 1'b0 && SH == 1'b1) begin message <=2;  status<=END; end //LED0 = LED_status; LED1 = LED_status; LED2 = !LED_status; LED3 = LED_status;  end
+else if(SL == 1'b0 && SH == 1'b1) begin message <=2;  status<=END; LED0 = LED_status; LED1 = LED_status; LED2 = !LED_status; LED3 = LED_status;  end
 
-else if(SL == 1'b1 && SH == 1'b1) begin message <=3; status<=INIT; end //LED0 = LED_status; LED1 = LED_status; LED2 = LED_status; LED3 = !LED_status; end
+else if(SL == 1'b1 && SH == 1'b1) begin message <=3; status<=INIT; LED0 = LED_status; LED1 = LED_status; LED2 = LED_status; LED3 = !LED_status; end
 
 else begin message <=4; end
 
@@ -83,14 +84,12 @@ case(status)
 		INIT: begin
 			contador <=0;
 			EV = status_EV;
-			LED0 = !LED_status; LED1 = LED_status; LED2 = LED_status; LED3 = LED_status;
-			
+			LED4 = LED_status;
 		end
 
 		END: begin // contador
-			LED0 = LED_status; LED1 = LED_status; LED2 = !LED_status; LED3 = LED_status;
-			if(contador <= 30'd750_000_000) begin EV = !status_EV; contador <= contador + 1; LED3 = !LED_status; end
-			else begin EV = status_EV;  LED3 = LED_status; end
+			if(contador <= 30'd750_000_000) begin EV = !status_EV; contador <= contador + 1; LED4 = !LED_status; end
+			else begin EV = status_EV;  LED4 = LED_status; end
 		end
 
 endcase
